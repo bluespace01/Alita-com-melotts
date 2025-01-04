@@ -23,7 +23,7 @@ default_text_dict = {
     'EN': 'The field of text-to-speech has seen rapid development recently.',
     'ES': 'El campo de la conversión de texto a voz ha experimentado un rápido desarrollo recientemente.',
     'FR': 'Le domaine de la synthèse vocale a connu un développement rapide récemment',
-    'ZH': 'text-to-speech 领域近年来发展迅速',
+    'ZH': '语音领域近年来发展迅速',
     'JP': 'テキスト読み上げの分野は最近急速な発展を遂げています',
     'KR': '최근 텍스트 음성 변환 분야가 급속도로 발전하고 있습니다.',    
 }

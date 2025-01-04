@@ -75,9 +75,9 @@ class TTS(nn.Module):
     def split_sentences_into_pieces(text, language, quiet=False):
         texts = split_sentence(text, language_str=language)
         if not quiet:
-            print(" > Text split to sentences.")
+            print("TTS> Text split to sentences.\n")
             print('\n'.join(texts))
-            print(" > ===========================")
+            print("TTS> ===========================\n")
         return texts
 
     def tts_to_file(self, text, speaker_id, output_path=None, sdp_ratio=0.2, noise_scale=0.6, noise_scale_w=0.8, speed=1.0, pbar=None, format=None, position=None, quiet=False,):
