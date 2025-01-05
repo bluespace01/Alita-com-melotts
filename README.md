@@ -3,6 +3,14 @@
   <img src="logo.png" width="300"/> 
 </div>
 
+## Quick Start
+
+python version: 3.10
+```bash
+pip install -r requirements.txt
+pip install -e .
+```
+
 ## Introduction
 MeloTTS is a **high-quality multi-lingual** text-to-speech library by [MIT](https://www.mit.edu/) and [MyShell.ai](https://myshell.ai). Supported languages include:
 
