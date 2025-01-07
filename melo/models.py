@@ -8,7 +8,8 @@ from melo import modules
 from melo import attentions
 
 from torch.nn import Conv1d, ConvTranspose1d, Conv2d
-from torch.nn.utils import weight_norm, remove_weight_norm, spectral_norm
+from torch.nn.utils.parametrizations import weight_norm
+from torch.nn.utils import spectral_norm, remove_weight_norm
 
 from melo.commons import init_weights, get_padding
 import melo.monotonic_align as monotonic_align
