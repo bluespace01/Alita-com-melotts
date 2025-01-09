@@ -60,7 +60,8 @@ class TTS(nn.Module):
         self.model.load_state_dict(checkpoint_dict['model'], strict=True)
         
         language = language.split('_')[0]
-        self.language = 'ZH_MIX_EN' if language == 'ZH' else language # we support a ZH_MIX_EN model
+        # We support a ZH_MIX_EN model, in fact, it's a ZH model corresponding to myshell-ai/MeloTTS-Chinese
+        self.language = 'ZH_MIX_EN' if language == 'ZH' else language 
 
     @staticmethod
     def audio_numpy_concat(segment_data_list, sr, speed=1.):
