@@ -16,6 +16,7 @@ from .models import SynthesizerTrn
 from .split_utils import split_sentence
 from .mel_processing import spectrogram_torch, spectrogram_torch_conv
 from .download_utils import load_or_download_config, load_or_download_model
+from loguru import logger
 
 class TTS(nn.Module):
     def __init__(self, 
@@ -33,6 +34,8 @@ class TTS(nn.Module):
             assert torch.cuda.is_available()
 
         # config_path = 
+        logger.debug(f"MeloTTS> Loading config from {config_path}")
+
         hps = load_or_download_config(language, use_hf=use_hf, config_path=config_path)
 
         num_languages = hps.num_languages
@@ -56,6 +59,7 @@ class TTS(nn.Module):
         self.device = device
     
         # load state_dict
+        logger.debug(f"MeloTTS> Loading checkpoint from {ckpt_path}")
         checkpoint_dict = load_or_download_model(language, device, use_hf=use_hf, ckpt_path=ckpt_path)
         self.model.load_state_dict(checkpoint_dict['model'], strict=True)
         
@@ -89,11 +93,11 @@ class TTS(nn.Module):
             tx = pbar(texts)
         else:
             if position:
-                tx = tqdm(texts, position=position)
+                tx = tqdm(texts, position=position, ncols=140, bar_format='{l_bar}{bar:20}{r_bar}')
             elif quiet:
                 tx = texts
             else:
-                tx = tqdm(texts)
+                tx = tqdm(texts, ncols=70, bar_format='{l_bar}{bar:20}{r_bar}')
         for t in tx:
             if language in ['EN', 'ZH_MIX_EN']:
                 t = re.sub(r'([a-z])([A-Z])', r'\1 \2', t)

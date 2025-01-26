@@ -16,7 +16,7 @@ current_file_path = os.path.dirname(__file__)
 
 # Load Bert tokenizer
 model_id = 'bert-base-multilingual-uncased'
-tokenizer = AutoTokenizer.from_pretrained(model_id)
+tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
 
 # Initialize jieba tokenizer in advance
 def initialize_jieba():

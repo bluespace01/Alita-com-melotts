@@ -17,7 +17,7 @@ def get_bert_feature(text, word2ph, device=None):
     if not device:
         device = "cuda"
     if model is None:
-        model = AutoModelForMaskedLM.from_pretrained(model_id).to(
+        model = AutoModelForMaskedLM.from_pretrained(model_id, trust_remote_code=True).to(
             device
         )
     with torch.no_grad():
